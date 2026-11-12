@@ -1,59 +1,146 @@
-<!DOCTYPE html>
-<html lang="es">
+@extends('layouts.app')
 
-<head>
+@section('title', 'Dashboard | DISFARMA')
 
-    <meta charset="UTF-8">
+@section('content')
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<div class="d-flex justify-content-between align-items-center mb-4">
 
-    <title>Dashboard | DISFARMA</title>
+    <div>
 
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet">
+        <h2 class="mb-1">
+            Dashboard
+        </h2>
 
-</head>
+        <p class="text-muted mb-0">
+            Bienvenido al Sistema Integral de Gestión de DISFARMA Honduras.
+        </p>
 
-<body class="bg-light">
+    </div>
 
-<div class="container py-5">
+</div>
 
-    <div class="card shadow-sm">
 
-        <div class="card-body">
+<div class="row g-4">
 
-            <h1>
-                Bienvenido a DISFARMA
-            </h1>
+    <div class="col-md-6 col-xl-3">
 
-            <p>
-                Usuario:
-                <strong>
-                    {{ Auth::user()->name }}
-                </strong>
-            </p>
+        <div class="card shadow-sm border-0 h-100">
 
-            <p>
-                Correo:
-                {{ Auth::user()->email }}
-            </p>
+            <div class="card-body">
 
-            <form method="POST"
-                  action="{{ route('logout') }}">
+                <div class="d-flex justify-content-between align-items-center">
 
-                @csrf
+                    <div>
 
-                <button
-                    type="submit"
-                    class="btn btn-danger">
+                        <p class="text-muted mb-1">
+                            Medicamentos
+                        </p>
 
-                    Cerrar sesión
+                        <h3 class="mb-0">
+                            0
+                        </h3>
 
-                </button>
+                    </div>
 
-            </form>
+                    <i class="bi bi-capsule fs-1 text-primary"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="col-md-6 col-xl-3">
+
+        <div class="card shadow-sm border-0 h-100">
+
+            <div class="card-body">
+
+                <div class="d-flex justify-content-between align-items-center">
+
+                    <div>
+
+                        <p class="text-muted mb-1">
+                            Proveedores activos
+                        </p>
+
+                        <h3 class="mb-0">
+                            0
+                        </h3>
+
+                    </div>
+
+                    <i class="bi bi-truck fs-1 text-success"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="col-md-6 col-xl-3">
+
+        <div class="card shadow-sm border-0 h-100">
+
+            <div class="card-body">
+
+                <div class="d-flex justify-content-between align-items-center">
+
+                    <div>
+
+                        <p class="text-muted mb-1">
+                            Empleados
+                        </p>
+
+                        <h3 class="mb-0">
+                            0
+                        </h3>
+
+                    </div>
+
+                    <i class="bi bi-people fs-1 text-warning"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="col-md-6 col-xl-3">
+
+        <div class="card shadow-sm border-0 h-100">
+
+            <div class="card-body">
+
+                <div class="d-flex justify-content-between align-items-center">
+
+                    <div>
+
+                        <p class="text-muted mb-1">
+                            Valor inventario
+                        </p>
+
+                        <h3 class="mb-0">
+                            L. 0.00
+                        </h3>
+
+                    </div>
+
+                    <i class="bi bi-cash-stack fs-1 text-danger"></i>
+
+                </div>
+
+            </div>
 
         </div>
 
@@ -61,6 +148,4 @@
 
 </div>
 
-</body>
-
-</html>
+@endsection

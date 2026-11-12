@@ -181,6 +181,9 @@
                 Droguería y Distribuidora Farmacéutica
                 San Rafael S. de R.L.
             </small>
+            <small class="text-muted">
+                Jeser Aziel Amaya Ortiz - UNAH.
+            </small>
 
         </div>
 
