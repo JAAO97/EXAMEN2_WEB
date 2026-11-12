@@ -146,7 +146,7 @@
 
 
                 <a
-                    href="#"
+                    href="{{ route('medicamentos.index') }}"
                     class="nav-link
                     {{ request()->routeIs('medicamentos.*') ? 'active' : '' }}">
 
@@ -158,7 +158,7 @@
 
 
                 <a
-                    href="#"
+                    href="{{ route('proveedores.index') }}"
                     class="nav-link
                     {{ request()->routeIs('proveedores.*') ? 'active' : '' }}">
 
@@ -170,7 +170,7 @@
 
 
                 <a
-                    href="#"
+                    href="{{ route('empleados.index') }}"
                     class="nav-link
                     {{ request()->routeIs('empleados.*') ? 'active' : '' }}">
 
