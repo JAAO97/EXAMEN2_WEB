@@ -38,7 +38,7 @@
                         </p>
 
                         <h3 class="mb-0">
-                            0
+                            {{ $totalMedicamentos }}
                         </h3>
 
                     </div>
@@ -69,7 +69,7 @@
                         </p>
 
                         <h3 class="mb-0">
-                            0
+                            {{ $proveedoresActivos }}
                         </h3>
 
                     </div>
@@ -100,7 +100,7 @@
                         </p>
 
                         <h3 class="mb-0">
-                            0
+                            {{ $totalEmpleados }}
                         </h3>
 
                     </div>
@@ -131,7 +131,7 @@
                         </p>
 
                         <h3 class="mb-0">
-                            L. 0.00
+                            L. {{ number_format($valorInventario, 2) }}
                         </h3>
 
                     </div>
