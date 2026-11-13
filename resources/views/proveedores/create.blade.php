@@ -4,35 +4,55 @@
 
 @section('content')
 
-<div class="mb-4">
+<div class="d-flex flex-column flex-md-row
+            justify-content-between align-items-md-center
+            mb-4 gap-3">
 
-    <h1 class="page-title">
-        Registrar proveedor
-    </h1>
+    <div>
+        <h1 class="page-title">
+            Registrar proveedor
+        </h1>
 
-    <p class="page-subtitle">
-        Complete la información comercial del proveedor.
-    </p>
+        <p class="page-subtitle">
+            Complete la información fiscal, comercial y de contacto del proveedor..
+        </p>
+    </div>
+    
+    <a href="{{ route('proveedores.index') }}"
+       class="btn btn-outline-secondary">
+        <i class="bi bi-arrow-left me-1"></i>
+        Volver
+    </a>   
 
 </div>
 
+<form
+    method="POST"
+    action="{{ route('proveedores.store') }}">
 
-<div class="card border-0 shadow-sm">
+    @csrf
 
-    <div class="card-body p-4">
+        <div class="card mb-4">
 
-        <form
-            method="POST"
-            action="{{ route('proveedores.store') }}">
+            <div class="card-header">
 
-            @csrf
+                    <i class="bi bi-building me-2 text-primary"></i>
+            Información fiscal y de contacto
+
+        </div>
+
+        <div class="card-body p-4">
 
             <div class="row g-3">
 
                 <div class="col-md-4">
 
-                    <label for="rtn" class="form-label">
+                    <label
+                        for="rtn"
+                        class="form-label">
+
                         RTN *
+
                     </label>
 
                     <input
@@ -61,8 +81,12 @@
 
                 <div class="col-md-8">
 
-                    <label for="empresa" class="form-label">
+                    <label
+                        for="empresa"
+                        class="form-label">
+
                         Empresa *
+
                     </label>
 
                     <input
@@ -86,8 +110,12 @@
 
                 <div class="col-md-6">
 
-                    <label for="contacto" class="form-label">
+                    <label
+                        for="contacto"
+                        class="form-label">
+
                         Persona de contacto *
+
                     </label>
 
                     <input
@@ -111,8 +139,12 @@
 
                 <div class="col-md-6">
 
-                    <label for="telefono" class="form-label">
+                    <label
+                        for="telefono"
+                        class="form-label">
+
                         Teléfono *
+
                     </label>
 
                     <input
@@ -121,9 +153,9 @@
                         name="telefono"
                         maxlength="8"
                         value="{{ old('telefono') }}"
+                        placeholder="99999999"
                         class="form-control
-                        @error('telefono') is-invalid @enderror"
-                        placeholder="99999999">
+                        @error('telefono') is-invalid @enderror">
 
                     <div class="form-text">
                         8 dígitos. Debe iniciar con 2, 3, 8 o 9.
@@ -139,11 +171,35 @@
 
                 </div>
 
+            </div>
+
+        </div>
+
+    </div>
+
+
+    {{-- Condiciones comerciales --}}
+    <div class="card mb-4">
+
+        <div class="card-header">
+
+            <i class="bi bi-credit-card me-2 text-success"></i>
+            Condiciones comerciales
+
+        </div>
+
+        <div class="card-body p-4">
+
+            <div class="row g-3">
 
                 <div class="col-md-4">
 
-                    <label for="categoria" class="form-label">
+                    <label
+                        for="categoria"
+                        class="form-label">
+
                         Categoría *
+
                     </label>
 
                     <select
@@ -189,8 +245,12 @@
 
                 <div class="col-md-4">
 
-                    <label for="limite_credito" class="form-label">
+                    <label
+                        for="limite_credito"
+                        class="form-label">
+
                         Límite de crédito *
+
                     </label>
 
                     <div class="input-group">
@@ -224,8 +284,12 @@
 
                 <div class="col-md-4">
 
-                    <label for="dias_credito" class="form-label">
+                    <label
+                        for="dias_credito"
+                        class="form-label">
+
                         Días de crédito *
+
                     </label>
 
                     <select
@@ -264,11 +328,35 @@
 
                 </div>
 
+            </div>
+
+        </div>
+
+    </div>
+
+
+    {{-- Estado y registro --}}
+    <div class="card mb-4">
+
+        <div class="card-header">
+
+            <i class="bi bi-calendar-check me-2 text-info"></i>
+            Estado y registro
+
+        </div>
+
+        <div class="card-body p-4">
+
+            <div class="row g-3">
 
                 <div class="col-md-6">
 
-                    <label for="estado" class="form-label">
+                    <label
+                        for="estado"
+                        class="form-label">
+
                         Estado *
+
                     </label>
 
                     <select
@@ -276,10 +364,6 @@
                         name="estado"
                         class="form-select
                         @error('estado') is-invalid @enderror">
-
-                        <option value="">
-                            Seleccione...
-                        </option>
 
                         <option
                             value="Activo"
@@ -316,8 +400,12 @@
 
                 <div class="col-md-6">
 
-                    <label for="fecha_registro" class="form-label">
+                    <label
+                        for="fecha_registro"
+                        class="form-label">
+
                         Fecha de registro *
+
                     </label>
 
                     <input
@@ -343,36 +431,33 @@
 
             </div>
 
-
-            <hr class="my-4">
-
-
-            <div class="d-flex justify-content-end gap-2">
-
-                <a
-                    href="{{ route('proveedores.index') }}"
-                    class="btn btn-outline-secondary">
-
-                    Cancelar
-
-                </a>
-
-                <button
-                    type="submit"
-                    class="btn btn-primary">
-
-                    <i class="bi bi-save me-1"></i>
-
-                    Guardar proveedor
-
-                </button>
-
-            </div>
-
-        </form>
+        </div>
 
     </div>
 
-</div>
+
+    {{-- Acciones --}}
+    <div class="d-flex justify-content-end gap-2 mb-4">
+
+        <a
+            href="{{ route('proveedores.index') }}"
+            class="btn btn-outline-secondary px-4">
+
+            Cancelar
+
+        </a>
+
+        <button
+            type="submit"
+            class="btn btn-primary px-4">
+
+            <i class="bi bi-save me-1"></i>
+            Guardar proveedor
+
+        </button>
+
+    </div>
+
+</form>
 
 @endsection

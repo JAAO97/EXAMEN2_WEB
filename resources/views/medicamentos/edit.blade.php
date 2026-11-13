@@ -432,11 +432,7 @@
 
                     @if($medicamento->imagen)
 
-                        <div class="mb-3">
-
-                            <p class="text-muted mb-2">
-                                Imagen actual:
-                            </p>
+                        <div class="d-flex align-items-center gap-3 mb-3">
 
                             <img
                                 src="{{ asset(
@@ -444,8 +440,22 @@
                                     $medicamento->imagen
                                 ) }}"
                                 alt="{{ $medicamento->nombre }}"
-                                class="img-thumbnail"
-                                style="max-width:150px;">
+                                class="rounded border bg-white p-1"
+                                width="90"
+                                height="90"
+                                style="object-fit: contain;">
+
+                            <div>
+
+                                <div class="fw-semibold">
+                                    Imagen actual
+                                </div>
+
+                                <small class="text-muted">
+                                    Seleccione una nueva imagen solo si desea reemplazarla.
+                                </small>
+
+                            </div>
 
                         </div>
 

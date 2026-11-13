@@ -67,7 +67,9 @@
                         <tr>
 
                             <td>
+                                <span class="fw-semibold text-secondary">
                                 {{ $proveedor->rtn }}
+                                </span>
                             </td>
 
                             <td class="fw-semibold">
@@ -99,6 +101,8 @@
                             <td>
 
                                 <span class="badge bg-info text-dark">
+
+                                    <i class="bi bi-calendar-check me-1"></i>
 
                                     {{ $proveedor->dias_credito }}
                                     días
@@ -143,7 +147,7 @@
 
                             <td class="text-center">
 
-                                <div class="d-flex gap-1 justify-content-center">
+                                <div class="d-flex gap-2 justify-content-center">
 
                                     <a
                                         href="{{ route('proveedores.edit', $proveedor->id) }}"

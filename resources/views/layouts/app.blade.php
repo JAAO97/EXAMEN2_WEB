@@ -558,6 +558,16 @@
             overflow-wrap: anywhere;
         }
 
+        .card-header {
+            padding: 15px 20px;
+            font-size: .92rem;
+        }
+
+        .form-text {
+            font-size: .78rem;
+            color: #84909c;
+        }
+
     </style>
 
 </head>

@@ -24,7 +24,7 @@
         href="{{ route('empleados.create') }}"
         class="btn btn-primary px-3">
 
-        <i class="bi bi-plus-lg me-1"></i>
+        <i class="bi bi-person-plus-lg me-1"></i>
 
         Nuevo empleado
 
@@ -67,17 +67,19 @@
                         <tr>
 
                             <td>
+                                <span class="fw-semibold text-secondary">
                                 {{ $empleado->identidad }}
-                            </td>
-
-                            <td class="fw-semibold">
-
-                                {{ $empleado->nombre }}
-                                {{ $empleado->apellido }}
-
+                                </span>
                             </td>
 
                             <td>
+                                <span class="fw-semibold">
+                                {{ $empleado->nombre }}
+                                {{ $empleado->apellido }}
+                                </span>
+                            </td>
+
+                            <td class="text-muted">
                                 {{ $empleado->correo }}
                             </td>
 
@@ -88,7 +90,7 @@
                                     @case('Regente Farmacéutico')
 
                                         <span class="badge bg-primary">
-
+                                            <i class="bi bi-capsule me-1"></i>
                                             {{ $empleado->cargo }}
 
                                         </span>
@@ -99,7 +101,7 @@
                                     @case('Asistente de Farmacia')
 
                                         <span class="badge bg-info text-dark">
-
+                                            <i class="bi bi-person-heart me-1"></i>
                                             {{ $empleado->cargo }}
 
                                         </span>
@@ -110,7 +112,7 @@
                                     @case('Jefe de Bodega')
 
                                         <span class="badge bg-warning text-dark">
-
+                                            <i class="bi bi-box-seam me-1"></i>
                                             {{ $empleado->cargo }}
 
                                         </span>
@@ -121,7 +123,7 @@
                                     @case('Despachador')
 
                                         <span class="badge bg-secondary">
-
+                                            <i class="bi bi-truck me-1"></i>
                                             {{ $empleado->cargo }}
 
                                         </span>
@@ -132,7 +134,7 @@
                                     @default
 
                                         <span class="badge bg-dark">
-
+                                            <i class="bi bi-cash-register me-1"></i>
                                             {{ $empleado->cargo }}
 
                                         </span>
@@ -164,12 +166,14 @@
                                 @if($empleado->estado === 'Activo')
 
                                     <span class="badge bg-success">
+                                        <i class="bi bi-check-circle me-1"></i>
                                         Activo
                                     </span>
 
                                 @else
 
                                     <span class="badge bg-secondary">
+                                        <i class="bi bi-dash-circle me-1"></i>
                                         Inactivo
                                     </span>
 
@@ -179,7 +183,7 @@
 
                             <td class="text-center">
 
-                                <div class="d-flex gap-1 justify-content-center">
+                                <div class="d-flex gap-2 justify-content-center">
 
                                     <a
                                         href="{{ route(

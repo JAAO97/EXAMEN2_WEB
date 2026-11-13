@@ -43,7 +43,7 @@
 
             <div class="row g-2">
 
-                <div class="col-md-9">
+                <div class="col-md-10">
 
                     <div class="input-group">
 
@@ -64,12 +64,13 @@
 
                 </div>
 
-                <div class="col-md-3 d-grid d-md-flex gap-2">
+                <div class="col-md-2 d-grid">
 
                     <button
                         type="submit"
-                        class="btn btn-primary flex-fill">
+                        class="btn btn-primary">
 
+                        <i class="bi bi-search me-1"></i>
                         Buscar
 
                     </button>
@@ -177,7 +178,7 @@
 
                             <td>
 
-                                <span class="fw-semibold">
+                                <span class="fw-semibold text-secondary">
 
                                     {{ $medicamento->codigo }}
 
@@ -269,7 +270,7 @@
                             <td class="text-center">
 
                                 <div
-                                    class="d-flex gap-1
+                                    class="d-flex gap-2
                                            justify-content-center">
 
                                     <a

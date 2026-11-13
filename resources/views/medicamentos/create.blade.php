@@ -4,41 +4,58 @@
 
 @section('content')
 
-<div class="mb-4">
+<div class="d-flex flex-column flex-md-row
+            justify-content-between align-items-md-center
+            mb-4 gap-3">
 
-    <h1 class="page-title">
-        Registrar medicamento
-    </h1>
+    <div>
+        <h1 class="page-title">
+            Registrar medicamento
+        </h1>
 
-    <p class="page-subtitle">
-        Complete la información del producto farmacéutico.
-    </p>
+        <p class="page-subtitle">
+            Complete la información general, comercial y de inventario del producto.
+        </p>
+    </div>
+
+    <a
+        href="{{ route('medicamentos.index') }}"
+        class="btn btn-outline-secondary">
+
+        <i class="bi bi-arrow-left me-1"></i>
+        Volver
+
+    </a>
 
 </div>
 
 
-<div class="card border-0 shadow-sm">
+<form
+    method="POST"
+    action="{{ route('medicamentos.store') }}"
+    enctype="multipart/form-data">
 
-    <div class="card-body p-4">
+    @csrf
 
-        <form
-            method="POST"
-            action="{{ route('medicamentos.store') }}"
-            enctype="multipart/form-data">
 
-            @csrf
+    {{-- Información general --}}
+    <div class="card mb-4">
 
+        <div class="card-header">
+
+            <i class="bi bi-info-circle me-2 text-primary"></i>
+            Información general
+
+        </div>
+
+        <div class="card-body p-4">
 
             <div class="row g-3">
 
                 <div class="col-md-4">
 
-                    <label
-                        for="codigo"
-                        class="form-label">
-
+                    <label for="codigo" class="form-label">
                         Código / SKU *
-
                     </label>
 
                     <input
@@ -50,13 +67,9 @@
                         @error('codigo') is-invalid @enderror">
 
                     @error('codigo')
-
                         <div class="invalid-feedback">
-
                             {{ $message }}
-
                         </div>
-
                     @enderror
 
                 </div>
@@ -64,12 +77,8 @@
 
                 <div class="col-md-8">
 
-                    <label
-                        for="nombre"
-                        class="form-label">
-
+                    <label for="nombre" class="form-label">
                         Nombre del medicamento *
-
                     </label>
 
                     <input
@@ -81,26 +90,18 @@
                         @error('nombre') is-invalid @enderror">
 
                     @error('nombre')
-
                         <div class="invalid-feedback">
-
                             {{ $message }}
-
                         </div>
-
                     @enderror
 
                 </div>
 
 
-                <div class="col-md-4">
+                <div class="col-md-6">
 
-                    <label
-                        for="categoria"
-                        class="form-label">
-
+                    <label for="categoria" class="form-label">
                         Categoría *
-
                     </label>
 
                     <select
@@ -123,7 +124,7 @@
 
                             <option
                                 value="{{ $categoria }}"
-                                {{ old('categoria') == $categoria
+                                {{ old('categoria') === $categoria
                                     ? 'selected'
                                     : '' }}>
 
@@ -136,26 +137,61 @@
                     </select>
 
                     @error('categoria')
-
                         <div class="invalid-feedback">
-
                             {{ $message }}
-
                         </div>
-
                     @enderror
 
                 </div>
 
 
+                <div class="col-md-6">
+
+                    <label for="laboratorio" class="form-label">
+                        Laboratorio *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="laboratorio"
+                        name="laboratorio"
+                        value="{{ old('laboratorio') }}"
+                        class="form-control
+                        @error('laboratorio') is-invalid @enderror">
+
+                    @error('laboratorio')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    {{-- Información comercial --}}
+    <div class="card mb-4">
+
+        <div class="card-header">
+
+            <i class="bi bi-cash-stack me-2 text-success"></i>
+            Información comercial e inventario
+
+        </div>
+
+        <div class="card-body p-4">
+
+            <div class="row g-3">
+
                 <div class="col-md-4">
 
-                    <label
-                        for="precio"
-                        class="form-label">
-
+                    <label for="precio" class="form-label">
                         Precio de venta *
-
                     </label>
 
                     <div class="input-group">
@@ -175,13 +211,9 @@
                             @error('precio') is-invalid @enderror">
 
                         @error('precio')
-
                             <div class="invalid-feedback">
-
                                 {{ $message }}
-
                             </div>
-
                         @enderror
 
                     </div>
@@ -191,12 +223,8 @@
 
                 <div class="col-md-4">
 
-                    <label
-                        for="costo"
-                        class="form-label">
-
+                    <label for="costo" class="form-label">
                         Costo *
-
                     </label>
 
                     <div class="input-group">
@@ -216,13 +244,9 @@
                             @error('costo') is-invalid @enderror">
 
                         @error('costo')
-
                             <div class="invalid-feedback">
-
                                 {{ $message }}
-
                             </div>
-
                         @enderror
 
                     </div>
@@ -232,12 +256,8 @@
 
                 <div class="col-md-4">
 
-                    <label
-                        for="inventario"
-                        class="form-label">
-
+                    <label for="inventario" class="form-label">
                         Inventario *
-
                     </label>
 
                     <input
@@ -250,57 +270,38 @@
                         @error('inventario') is-invalid @enderror">
 
                     @error('inventario')
-
                         <div class="invalid-feedback">
-
                             {{ $message }}
-
                         </div>
-
                     @enderror
 
                 </div>
 
+            </div>
 
-                <div class="col-md-8">
+        </div>
 
-                    <label
-                        for="laboratorio"
-                        class="form-label">
+    </div>
 
-                        Laboratorio *
 
-                    </label>
+    {{-- Trazabilidad --}}
+    <div class="card mb-4">
 
-                    <input
-                        type="text"
-                        id="laboratorio"
-                        name="laboratorio"
-                        value="{{ old('laboratorio') }}"
-                        class="form-control
-                        @error('laboratorio') is-invalid @enderror">
+        <div class="card-header">
 
-                    @error('laboratorio')
+            <i class="bi bi-upc-scan me-2 text-warning"></i>
+            Lote y fechas
 
-                        <div class="invalid-feedback">
+        </div>
 
-                            {{ $message }}
+        <div class="card-body p-4">
 
-                        </div>
-
-                    @enderror
-
-                </div>
-
+            <div class="row g-3">
 
                 <div class="col-md-4">
 
-                    <label
-                        for="numero_lote"
-                        class="form-label">
-
+                    <label for="numero_lote" class="form-label">
                         Número de lote *
-
                     </label>
 
                     <input
@@ -312,13 +313,9 @@
                         @error('numero_lote') is-invalid @enderror">
 
                     @error('numero_lote')
-
                         <div class="invalid-feedback">
-
                             {{ $message }}
-
                         </div>
-
                     @enderror
 
                 </div>
@@ -326,12 +323,8 @@
 
                 <div class="col-md-4">
 
-                    <label
-                        for="fecha_registro"
-                        class="form-label">
-
+                    <label for="fecha_registro" class="form-label">
                         Fecha de registro *
-
                     </label>
 
                     <input
@@ -346,13 +339,9 @@
                         @error('fecha_registro') is-invalid @enderror">
 
                     @error('fecha_registro')
-
                         <div class="invalid-feedback">
-
                             {{ $message }}
-
                         </div>
-
                     @enderror
 
                 </div>
@@ -360,12 +349,8 @@
 
                 <div class="col-md-4">
 
-                    <label
-                        for="fecha_vencimiento"
-                        class="form-label">
-
+                    <label for="fecha_vencimiento" class="form-label">
                         Fecha de vencimiento *
-
                     </label>
 
                     <input
@@ -377,88 +362,81 @@
                         @error('fecha_vencimiento') is-invalid @enderror">
 
                     @error('fecha_vencimiento')
-
                         <div class="invalid-feedback">
-
                             {{ $message }}
-
                         </div>
-
-                    @enderror
-
-                </div>
-
-
-                <div class="col-md-12">
-
-                    <label
-                        for="imagen"
-                        class="form-label">
-
-                        Imagen del medicamento
-
-                    </label>
-
-                    <input
-                        type="file"
-                        id="imagen"
-                        name="imagen"
-                        accept=".jpg,.jpeg,.png,.webp"
-                        class="form-control
-                        @error('imagen') is-invalid @enderror">
-
-                    <div class="form-text">
-
-                        Formatos permitidos:
-                        JPG, JPEG, PNG y WEBP.
-                        Máximo 5 MB.
-
-                    </div>
-
-                    @error('imagen')
-
-                        <div class="invalid-feedback">
-
-                            {{ $message }}
-
-                        </div>
-
                     @enderror
 
                 </div>
 
             </div>
 
-
-            <hr class="my-4">
-
-
-            <div class="d-flex justify-content-end gap-2">
-
-                <a
-                    href="{{ route('medicamentos.index') }}"
-                    class="btn btn-outline-secondary">
-
-                    Cancelar
-
-                </a>
-
-                <button
-                    type="submit"
-                    class="btn btn-primary">
-
-                    <i class="bi bi-save me-1"></i>
-
-                    Guardar medicamento
-
-                </button>
-
-            </div>
-
-        </form>
+        </div>
 
     </div>
 
-</div>
+
+    {{-- Imagen --}}
+    <div class="card mb-4">
+
+        <div class="card-header">
+
+            <i class="bi bi-image me-2 text-info"></i>
+            Imagen del producto
+
+        </div>
+
+        <div class="card-body p-4">
+
+            <label for="imagen" class="form-label">
+                Seleccionar imagen
+            </label>
+
+            <input
+                type="file"
+                id="imagen"
+                name="imagen"
+                accept=".jpg,.jpeg,.png,.webp"
+                class="form-control
+                @error('imagen') is-invalid @enderror">
+
+            <div class="form-text">
+                JPG, JPEG, PNG o WEBP. Tamaño máximo: 5 MB.
+            </div>
+
+            @error('imagen')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+            @enderror
+
+        </div>
+
+    </div>
+
+
+    {{-- Acciones --}}
+    <div class="d-flex justify-content-end gap-2 mb-4">
+
+        <a
+            href="{{ route('medicamentos.index') }}"
+            class="btn btn-outline-secondary px-4">
+
+            Cancelar
+
+        </a>
+
+        <button
+            type="submit"
+            class="btn btn-primary px-4">
+
+            <i class="bi bi-save me-1"></i>
+            Guardar medicamento
+
+        </button>
+
+    </div>
+
+</form>
 
 @endsection
