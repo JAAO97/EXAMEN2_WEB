@@ -516,6 +516,9 @@
                         <div class="mt-2">
                             © {{ date('Y') }} DISFARMA Honduras.
                         </div>
+                        <div class="mt-2">
+                            Jeser Aziel Amaya Ortiz - UNAH.
+                        </div>
                     </div>
 
                 </section>
