@@ -6,11 +6,11 @@
 
 <div class="mb-4">
 
-    <h2 class="mb-1">
+    <h1 class="page-title">
         Editar empleado
-    </h2>
+    </h1>
 
-    <p class="text-muted">
+    <p class="page-subtitle">
         Actualice la información del colaborador.
     </p>
 

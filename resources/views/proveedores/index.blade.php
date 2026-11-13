@@ -10,11 +10,11 @@
 
     <div>
 
-        <h2 class="mb-1">
+        <h1 class="page-title">
             Proveedores
-        </h2>
+        </h1>
 
-        <p class="text-muted mb-0">
+        <p class="page-subtitle">
             Administración de proveedores de DISFARMA Honduras.
         </p>
 
@@ -22,9 +22,9 @@
 
     <a
         href="{{ route('proveedores.create') }}"
-        class="btn btn-primary">
+        class="btn btn-primary px-3">
 
-        <i class="bi bi-plus-circle me-1"></i>
+        <i class="bi bi-plus-lg me-1"></i>
 
         Nuevo proveedor
 
@@ -113,6 +113,8 @@
 
                                     <span class="badge bg-success">
 
+                                        <i class="bi bi-check-circle me-1"></i>
+
                                         Activo
 
                                     </span>
@@ -120,6 +122,8 @@
                                 @else
 
                                     <span class="badge bg-secondary">
+
+                                        <i class="bi bi-dash-circle me-1"></i>
 
                                         Inactivo
 
@@ -143,9 +147,10 @@
 
                                     <a
                                         href="{{ route('proveedores.edit', $proveedor->id) }}"
-                                        class="btn btn-warning btn-sm">
+                                        class="btn btn-outline-warning btn-sm"
+                                        title="Editar proveedor">
 
-                                        <i class="bi bi-pencil-square"></i>
+                                        <i class="bi bi-pencil"></i>
 
                                     </a>
 
@@ -161,7 +166,8 @@
 
                                         <button
                                             type="submit"
-                                            class="btn btn-danger btn-sm"
+                                            class="btn btn-outline-danger btn-sm"
+                                            title="Eliminar proveedor"
                                             onclick="
                                             return confirm(
                                             '¿Está seguro de eliminar este proveedor?'

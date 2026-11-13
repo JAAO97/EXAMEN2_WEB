@@ -6,11 +6,11 @@
 
 <div class="mb-4">
 
-    <h2 class="mb-1">
+    <h1 class="page-title">
         Registrar empleado
-    </h2>
+    </h1>
 
-    <p class="text-muted">
+    <p class="page-subtitle">
         Complete la información del colaborador.
     </p>
 
